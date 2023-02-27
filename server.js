@@ -4,6 +4,7 @@ require('dotenv').config();
 
 // required routes
 const houseDataRoute = require('./src/routes/searchHousingRoutes');
+const searchTombsRoute = require('./src/routes/searchTombsRoute');
 //const updateSearchRoute = require('./src/routes/updateSearchRoute');
 
 // setup-template
@@ -34,7 +35,10 @@ connection.once('open', () => {
 
 
 // routes
+// house data
 app.use('/getHouseData', houseDataRoute);
+// morgan data
+app.use('/searchmorgan', searchTombsRoute);
 
 // update routes
 //app.use('/updatesearch', updateSearchRoute);

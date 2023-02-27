@@ -27,3 +27,9 @@ export const updateData = async (year, value) => {
   const response = await axios.get('http://localhost:4000/updatesearch/year', { headers });
   return response.data;
 };
+
+// get all housing data
+export const findHousingData = async (year, value) => {
+  const response = await axios.get('/getHouseData')
+  return response.data;
+}
