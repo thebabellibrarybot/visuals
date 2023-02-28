@@ -18,9 +18,16 @@ const GeoMap = ( datas ) => {
     useEffect(() => {
 
     // The svg
-    var svg = d3.select(svgRef.current),
-        width = +svg.attr("width"),
-        height = +svg.attr("height");
+    var svg = d3.select(svgRef.current)
+    const width = +svg.attr("width")
+    const height = +svg.attr("height")
+    const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+
+
+    
+
 
     // Map and projection
     var projection = d3.geoMercator()
@@ -51,34 +58,6 @@ const GeoMap = ( datas ) => {
           )
         .style("stroke", "black")
         .style("opacity", .9)
-
-    // create a tooltip
-    // TOOLTIP STILL BROKEN !
-    var Tooltip = d3.select('op')
-      .append("div")
-      .attr("class", "tooltip")
-      .style("opacity", 1)
-      .style("background-color", "white")
-      .style("border", "solid")
-      .style("border-width", "2px")
-      .style("border-radius", "5px")
-      .style("padding", "5px")
-      
-      
-    // Three function that change the tooltip when user hover / move / leave a cell
-    var mouseover = function(d) {
-      Tooltip.style("opacity", 1)
-    }
-    var mousemove = function(d) {
-      Tooltip
-        .html(d.name + "<br>" , "long: " + d.long + "<br>" , "lat: " + d.lat)
-        //.style("left", (d3.mouse(this)[0]+10) + "px")
-        //.style("top", (d3.mouse(this)[1]) + "px")
-    }
-    var mouseleave = function(d) {
-      Tooltip.style("opacity", 0)
-    }
-
     
     // Add circles:
     svg
@@ -88,11 +67,31 @@ const GeoMap = ( datas ) => {
       .append("circle")
         .attr("cx", function(d){ return projection([d.long, d.lat])[0] })
         .attr("cy", function(d){ return projection([d.long, d.lat])[1] })
-        .attr("r", 3)
+        .attr("r", 5)
         .style("fill", "69b3a2")
         .attr("stroke", "#69b3a2")
-        .attr("stroke-width", 3)
+        .attr("stroke-width", 1)
         .attr("fill-opacity", .4)
+    
+        .on('mouseenter', function() {
+          console.log('hovering')
+          d3.select(this).attr('fill', 'red');
+        })
+        .on('mouseleave', function() {
+          d3.select(this).attr('fill', '#3498db');
+        })
+        .on('mouseover', function(event, d) {
+          // add text element show value on hover
+          d3.select(this)
+          console.log(d.long, 'hovering')
+          
+
+          svg.append('text')
+            .attr('class', 'value-text')
+            
+            .text(`fuck my asshole plz fulf kldsfjldsakjflksdjf jkfldsajf;llsaf jjkdls fjdskaf jsda jfs;ldfjsa;`)
+            .attr('text-anchor', 'middle');
+        })
     
 
     }, [jsonData, markers])
