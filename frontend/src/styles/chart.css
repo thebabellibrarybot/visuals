@@ -70,3 +70,8 @@ table th, tfoot td {
     background-color: #a2f12b;
     color: #28262b;
 }
+
+
+.geoMap {
+    border: 1px solid black;
+}
