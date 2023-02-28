@@ -1,17 +1,16 @@
 import GeoMap from '../pgComponents/geoMap';
-//import { json } from 'd3'
+import { json } from 'd3'
 import { useEffect, useState } from 'react';
-//const url = "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson";
-import geoData from '../svg/geoMap.json';
+const url = "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson";
+
 
 const GeoMapOptions = () => {
 
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        setData(geoData)
+        json(url).then(setData)
     },[])
-    console.log(data, 'data')
 
     if (!data) {
         return (
