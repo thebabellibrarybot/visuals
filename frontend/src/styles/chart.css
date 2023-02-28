@@ -1,0 +1,72 @@
+
+
+.tabllz {
+    padding: 10px;
+    margin: 10px;
+    background-color: #322e36;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+table td, table th {
+border: 1px solid #a2f12b;
+padding: 8px;
+color: #c4d3ae;
+}
+table tr:nth-child(even){
+    background-color: #322e36;
+    color: #c4d3ae;
+}
+table tr:nth-child(odd){
+    background-color: #28262b;
+    color: #c4d3ae;
+}
+.span {
+    color: #c4d3ae;
+}
+.span strong {
+    color: #c4d3ae;
+}
+.rows {
+color: #c4d3ae;
+text-decoration: none;
+}
+
+table tr:hover {
+    background-color: #a2f12b;
+}
+.rows {
+    color: #28262b;
+}
+table th, tfoot td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #1e1922;
+  }
+.table-search {
+    color: #c4d3ae;
+    padding: 10px;
+}
+.table-search input {
+    background-color: #322e36;
+    border: 1px solid #a2f12b;
+    color: #c4d3ae;
+}
+.table-search input :focus {
+    color: #c4d3ae;
+    border: #a2f12b;
+}
+.table-buttons button{
+    background-color: #322e36;
+    color: #c4d3ae;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #a2f12b;
+}
+.table-buttons :hover {
+    background-color: #a2f12b;
+    color: #28262b;
+}

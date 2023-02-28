@@ -1,19 +1,13 @@
 import React, { useMemo } from "react";
 import { useTable, useSortBy, useGlobalFilter, usePagination, useRowSelect } from 'react-table';
 import { COLUMNS } from './tombColumns';
-//import '../styles/table.css';
+import '../styles/chart.css';
 import GlobalFilter from "./globalFilter";
 
 
 const BasicTable = (prop) => {
 
-    const style = 'fukwitit';
-
     const data = prop.data;
-    
-
-    
-
 
     const columns = useMemo(() => COLUMNS, [])
     const {
@@ -44,7 +38,6 @@ const BasicTable = (prop) => {
 
   
     return (
-    <div className={style}>
       <div className="tabllz">
       
       <GlobalFilter filter = {globalFilter} setFilter={setGlobalFilter} />
@@ -108,8 +101,6 @@ const BasicTable = (prop) => {
           <button onClick={() => nextPage()} disabled = {!canNextPage}>next</button>
         </div>
       
-      </div>
-
       </div>
     )
   };

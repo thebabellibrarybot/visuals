@@ -1,6 +1,7 @@
 import { useState } from "react";
 import BasicTable from "../pgComponents/basicTable";
 import { findHousingData } from '../api/commonAPI';
+import MySVG from '../svg/mySVG';
 
 const HousingChart = () => {
 
@@ -21,7 +22,10 @@ const HousingChart = () => {
     
     if (!data) {
         return (
-            <p>loading</p>
+            <div>
+                <p>loading housing chart</p>
+                <MySVG></MySVG>
+            </div>
         )
     }
     return (

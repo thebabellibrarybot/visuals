@@ -15,7 +15,7 @@ const BarChart = ({ data }) => {
     // declare svg obj
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove(); // clear old charts when useEffect reRenders
-
+ 
     const width = +svg.attr('width');
     const height = +svg.attr('height');
     const margin = { top: 20, right: 20, bottom: 30, left: 40 };
@@ -38,8 +38,8 @@ const BarChart = ({ data }) => {
       .data(data)
       .enter()
       .append('rect')
-      .attr('x', (d, i) => xScale(i)) // use index to position bars along x-axis
-      .attr('y', d => yScale(d.num) + margin.top) // shift bars down by top margin
+      .attr('x', (d, i) => xScale(i)) 
+      .attr('y', d => yScale(d.num) + margin.top) 
       .attr('width', xScale.bandwidth())
       .attr('height', d => innerHeight - yScale(d.num))
       .attr('fill', '#3498db')
@@ -51,7 +51,7 @@ const BarChart = ({ data }) => {
         d3.select(this).attr('fill', '#3498db');
       })
       .on('mouseover', (event, d) => {
-        // add text element to show the value on hover
+        // add text element show value on hover
         svg.append('text')
           .attr('class', 'value-text')
           .attr('x', xScale(data.indexOf(d)) + xScale.bandwidth() / 2)
@@ -60,7 +60,7 @@ const BarChart = ({ data }) => {
           .attr('text-anchor', 'middle');
       })
       .on('mouseout', (event, d) => {
-        // select and remove the text element with class 'value-text'
+        // select and remove the text element 
         svg.select('.value-text').remove();
       })
       .on('click', handleClick);
@@ -88,6 +88,7 @@ const BarChart = ({ data }) => {
       .attr('class', 'y-axis')
       .attr('transform', `translate(${margin.left}, ${margin.top})`)
       .call(yAxis);
+      
   }, [data]);
 
   return (

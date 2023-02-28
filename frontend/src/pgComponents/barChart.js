@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getNumTombsByValue } from "../api/commonAPI";
 import ChartII from './chartII';
+import MySVG from '../svg/mySVG';
 
 
 const BarChart = (props) => {
@@ -26,6 +27,15 @@ const BarChart = (props) => {
         }
         fetchData();
     }, [version, search])
+
+    if (!data) {
+        return (
+            <div>
+                <p>loading</p>
+                <MySVG></MySVG>
+            </div>
+        )
+    }
 
 
     return (

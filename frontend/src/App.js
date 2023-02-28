@@ -4,10 +4,8 @@ import { BrowserRouter as Router, Route, Routes} from  'react-router-dom';
 import Home from './components/home';
 import HousingChart from './components/housingChart';
 import BarChartOptions from './components/barChartOptions';
+import GeoMapOptions from './components/geoMapOptions';
 
-// specific themes
-//import './components/scss/_main.scss';
-// global themes
 //import './styles/main.css';
 
 function App() {
@@ -27,6 +25,10 @@ function App() {
 
           <Routes>
             <Route path = "/custom" element = {<BarChartOptions/>}/>
+          </Routes>
+
+          <Routes>
+            <Route path = "/geomap" element = {<GeoMapOptions/>}/>
           </Routes>
 
           </Router>
