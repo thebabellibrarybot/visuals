@@ -26,9 +26,9 @@ and that's all folks!
 # on Puppeteer
 ## Overview:
 
- couldn't figure out the scraping for corcona. You can see the scripts and attempts in uploadBackground.js. if I had to guess they had an iFrame or something that was only allowing me to scrape the first two lots per page, although I was able to click through all the pages by identifying the second largest number from `<li>` elements in the page____navigator
+ couldn't figure out the scraping for corcona. You can see the scripts and attempts in uploadBackground.js. if I had to guess they had an iFrame or something that was only allowing me to scrape the first two lots per page, although I was able to click through all the pages by identifying the second largest number from `<li>` elements with a 'page____navigator' asset.
 
-In replacement for this prompt I have also shared the webscrapes I made for my extra viewer modules.
+In replacement for this prompt I have also shared the webscrapes I made for my extra viewer modules. The code pretty messy but it wasn't really asked for in the prompt. I've attached a link to that repository anyways. [(https://github.com/thebabellibrarybot/mumbotsPuppies.git)]
 
 Ideals I tried to focus on:
 
@@ -47,8 +47,6 @@ Fails:
 - I mean I think I have a good grasp of pupeteer but clearly don't know all the ins and outs. Tbh being in an office with a bunch of other developers would quickly allow me to handle a much wider range of functions though. Like I would be stumped for hours wondering why my scrapers are all of a sudden acting weird and could easily access resources for dealing with iframes and interactive page loaders. 
 
 # on D3
-
-
 
 Overview:
 
