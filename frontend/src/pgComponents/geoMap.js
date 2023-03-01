@@ -4,40 +4,40 @@ import React, {useEffect, useRef} from 'react';
 
 const GeoMap = ( datas ) => {
 
-
   // set ref 
   const svgRef = useRef();
+  // set tooltip 
+  const tooltipRef = useRef();
   // create data for map:
   const jsonData = datas.props;
-
   // Create data for circles:
   const markers = datas.marks;
 
-
-
+    // updates with data
     useEffect(() => {
 
     // The svg
-    var svg = d3.select(svgRef.current)
+    const svg = d3.select(svgRef.current)
     const width = +svg.attr("width")
     const height = +svg.attr("height")
 
     // Map and projection
-    var projection = d3.geoMercator()
-        .center([-115.972754, 33.27214])                // GPS of location to zoom on
-        .scale(2040)                       // This is like the zoom
+    const projection = d3.geoMercator()
+        .center([-115.972754, 33.27214])                
+        .scale(2040)                      
         .translate([ width/2, height/2 ])
 
-
-    // Create a color scale
-    var color = d3.scaleOrdinal()
-      .domain(["A", "B", "C" ])
-      .range([ "#402D54", "#D18975", "#8FD175"])
-
-    // Add a scale for bubble size
-    var size = d3.scaleLinear()
-      .domain([1, 100])  // What's in the data
-      .range([ 30, 50])  // Size in pixel
+     // Define zoom behavior
+     
+    // tooltip
+    const tooltip = d3.select(tooltipRef.current)
+      .style("position", "absolute")
+      .style("visibility", "hidden")
+      .style("background-color", "white")
+      .style("border", "solid")
+      .style("border-width", "1px")
+      .style("border-radius", "5px")
+      .style("padding", "10px")
 
     // Draw the map
     svg.append("g")
@@ -76,29 +76,25 @@ const GeoMap = ( datas ) => {
         .on('mouseover', function(event, d) {
           // add text element show value on hover
           d3.select(this)
-          svg.append('text')
-            .attr('class', 'text')
-            .attr("x", "200px")
-            .attr("y", "30px")
-            .text(`location: ${d.name}`)
-            .attr('text-anchor', 'middle');
+          tooltip.html(`<h1>${d.name}</h1><h2>Longitude: ${d.long}</h2>`)
+            .style("visibility", "visible")
+            .style("top", (event.pageY-10)+"px")
+            .style("left",(event.pageX+10)+"px");
         })
         .on('mouseout', (event, d) => {
           // select and remove the text element
           d3.select(this) 
           console.log('this should have removed it', d)
-          svg.select('.text').remove();
+          tooltip.style("visibility", "hidden");
         })
-    
-
+        
     }, [jsonData, markers])
-
-
 
     return (
     <div>
         <h1>reresentation of asset via cultural institution: Morgan Library</h1>
         <svg ref={svgRef} width="600" height="400"></svg>
+        <div ref={tooltipRef}></div>
     </div>
     );
 };
