@@ -1,0 +1,17 @@
+.base {
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.home-option {
+    border: 1px solid lightblue;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #374447;
+}
+.home-option p{
+    background-color: #374447;
+    padding: 10px;
+}

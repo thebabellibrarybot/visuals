@@ -1,4 +1,4 @@
-import React, { /*useEffect,*/ useState } from 'react';
+import React, { useState } from 'react';
 import BarChart from '../pgComponents/barChart';
 
 const BarChartOptions = () => {
@@ -25,12 +25,13 @@ const BarChartOptions = () => {
     }
 
     return (
-        <div> 
-            <h1>hello from barchart</h1>
-            <div>
+        <div className='base'> 
+        <div className='barchart-options'>
+            <h1>barchart of data scrapped from the morgan library</h1>
+            <div className='svg-option'>
                 <button label = 'type' onClick={() => onClickProps('type')}>show type</button>
                 <button label = 'location' onClick={() => onClickProps('location')}>show location</button>
-                <form>
+                <form className='svg-option'>
                     <select value = {searchValue} onChange={handleChange}>
                         <option value="">Select an option</option>
                             {yearArray.map((year, i) => {
@@ -41,10 +42,11 @@ const BarChartOptions = () => {
                     </select>
                 </form>
             </div>
-            <div className='date'>
+            <div className='svg-option'>
                 {type ? <BarChart props = 'type' search = {searchValue} /> : null}
                 {location ? <BarChart props = 'location' search = {searchValue} /> : null}
             </div>
+        </div>
         </div>
     );
 };

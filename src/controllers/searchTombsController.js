@@ -1,23 +1,9 @@
 const TombStatsModel = require('../models/MorganLibModel');
 
-// get stats by date
-const getDateStats = async (req, res) => {
-
-    const year = req.headers.year;
-    console.log(year, 'year');
-    const query = {
-        "year": year
-    }
-
-    const foundData = await TombStatsModel.findOne(query)
-    if (foundData) {
-        console.log(foundData, 'foundData');
-        res.status(200).json(foundData);
-    }
-    
-};
-
 // get num tombs by value['location' or 'type']
+// NOTE: probably not a good idea to do the data mappin in the controller... I have never tried this before and thought it might be cool
+//       to map the data based on the axios request so that less data would be send per req but it seems to really be slowing things down...
+//       if I have time I'm gonna put this in the commonAPI so the res obj in frontend is mapped instead...
 const getNumTombsByValue = async (req, res) => {
 
     console.log('getNumTombsFired')
@@ -35,7 +21,6 @@ const getNumTombsByValue = async (req, res) => {
                 num,
               }));
               
-            console.log(output, 'output');
             res.status(200).json(output)
         };
         if (value === 'type') {
@@ -45,11 +30,10 @@ const getNumTombsByValue = async (req, res) => {
                 num,
               }));
               
-            console.log(output, 'output');
             res.status(200).json(output)
         };
     };
 
 };
 
-module.exports = { getDateStats, getNumTombsByValue };
+module.exports = { getNumTombsByValue }; 

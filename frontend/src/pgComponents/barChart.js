@@ -11,14 +11,13 @@ const BarChart = (props) => {
     const [data, setData] = useState(null);
 
     console.log(version, 'v', search, 's')
-
+ 
     // impiment axios req to get barchart data based on props
     useEffect(() => {
         async function fetchData() {
             try {
+                
                 const response = await getNumTombsByValue(search, version);
-                console.log(response, 'data')
-                setData(null)
                 setData(response)
 
             } catch (err) {
@@ -30,17 +29,14 @@ const BarChart = (props) => {
 
     if (!data) {
         return (
-            <div>
-                <p>loading</p>
+            <div className="loader">
                 <MySVG></MySVG>
             </div>
         )
     }
 
-
     return (
-        <div>
-            <p>barchar {version}, {search}</p>
+        <div className="svg-option">
             {data ? <ChartII data = {data}></ChartII> : <p>awaiting chartII props</p>}
         </div>
     )

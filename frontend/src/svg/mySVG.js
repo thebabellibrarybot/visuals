@@ -1,7 +1,7 @@
 const MySVG = () => {
 
     return (
-        <div>
+        <div className="loader">
             <p>sorry i didn't add any lazy loaders...</p>
         </div>
     )

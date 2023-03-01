@@ -42,9 +42,9 @@ export const COLUMNS = [
 
     },
     {
-        Header: 'average_price_price_sqft',
-        Footer: 'average_price_price_sqft',
-        accessor: 'average_price_price_sqft',
+        Header: 'average_price_price_spft',
+        Footer: 'average_price_price_spft',
+        accessor: 'average_price_price_spft',
 
     }
 ]

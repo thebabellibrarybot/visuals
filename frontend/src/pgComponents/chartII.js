@@ -18,7 +18,7 @@ const BarChart = ({ data }) => {
  
     const width = +svg.attr('width');
     const height = +svg.attr('height');
-    const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+    const margin = { top: 20, right: 20, bottom: 190, left: 40 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
@@ -45,7 +45,7 @@ const BarChart = ({ data }) => {
       .attr('fill', '#3498db')
       .on('mouseenter', function() {
         console.log('hovering')
-        d3.select(this).attr('fill', 'red');
+        d3.select(this).attr('fill', '#82f9ef');
       })
       .on('mouseleave', function() {
         d3.select(this).attr('fill', '#3498db');
@@ -57,7 +57,9 @@ const BarChart = ({ data }) => {
           .attr('x', xScale(data.indexOf(d)) + xScale.bandwidth() / 2)
           .attr('y', yScale(d.num) + margin.top - 5)
           .text(`${d.value}: ${d.num}`)
-          .attr('text-anchor', 'middle');
+          .attr('text-anchor', 'middle')
+          .attr('background-color', '#fff')
+          .attr('fill', '#82f9ef');
       })
       .on('mouseout', (event, d) => {
         // select and remove the text element 
@@ -78,9 +80,9 @@ const BarChart = ({ data }) => {
       .attr('transform', `translate(0,${innerHeight + margin.top})`) 
       .call(xAxis)
       .selectAll('text')
-      .attr('transform', 'rotate(-90)')
+      .attr('transform', 'rotate(-45)')
       .attr('text-anchor', 'end')
-      .attr('dx', '-0.8em')
+      .attr('dx', '-1em')
       .attr('dy', '-0.15em');
 
     // add y-axis
@@ -94,7 +96,7 @@ const BarChart = ({ data }) => {
   return (
     <div>
       <h1>reresentation of asset via cultural institution: Morgan Library</h1>
-      <svg ref={svgRef} width="600" height="400"></svg>
+      <svg ref={svgRef} width="600" height="600"></svg>
     </div>
   );
 };

@@ -1,0 +1,27 @@
+@keyframes move {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+.svg-option {
+    background-color: #374447;
+    border-radius: 10px;
+}
+
+.loader {
+    background-color: rgb(255, 102, 102);
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px dashed rgb(255, 147, 147);
+    color: rgb(76, 0, 0);
+    display: flex;
+    justify-content: center;
+}
+.loader p {
+    background-color: rgb(255, 102, 102);
+    color: rgb(76, 0, 0);
+}

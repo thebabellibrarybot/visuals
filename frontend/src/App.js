@@ -2,11 +2,12 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Routes} from  'react-router-dom';
 
 import Home from './components/home';
-import HousingChart from './components/housingChart';
+import HousingChart from './components/basicTableOptions';
 import BarChartOptions from './components/barChartOptions';
 import GeoMapOptions from './components/geoMapOptions';
 
-//import './styles/main.css';
+import './styles/components.css';
+import './styles/pgcomponents.css';
 
 function App() {
 
@@ -20,11 +21,11 @@ function App() {
           </Routes>
 
           <Routes>
-            <Route path = "/chart" element = {<HousingChart/>}/>
+            <Route path = "/basictable" element = {<HousingChart/>}/>
           </Routes>
 
           <Routes>
-            <Route path = "/custom" element = {<BarChartOptions/>}/>
+            <Route path = "/barchart" element = {<BarChartOptions/>}/>
           </Routes>
 
           <Routes>

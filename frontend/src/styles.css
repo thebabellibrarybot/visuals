@@ -1,9 +1,42 @@
 .invisible {
     display: none;
 }
-.date {
-    background-color: blue;
+* {
+    background-color: #262d2f;
+    color: #b1c8c6;
+    font-size: medium;
+    align-items: center;
 }
-.type {
-    background-color: red;
+button {
+    background-color: rgb(31, 34, 41);
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: 1px solid black;
+    margin: 10px;
+}
+button:hover {
+    border-color: lightblue;
+}
+h1 {
+    font-size: x-large;
+}
+.link {
+    background-color: rgb(31, 34, 41);
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: 1px solid black;
+}
+.link:hover {
+    border-color: lightblue;
+}
+
+select option:nth-child(2n+1) {
+background-color: rgb(20, 25, 31);
+}
+
+select option:hover {
+background-color: rgb(31,34,41);
+color: lightblue;
 }
