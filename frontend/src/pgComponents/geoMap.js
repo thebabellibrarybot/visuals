@@ -21,13 +21,6 @@ const GeoMap = ( datas ) => {
     var svg = d3.select(svgRef.current)
     const width = +svg.attr("width")
     const height = +svg.attr("height")
-    const margin = { top: 20, right: 20, bottom: 30, left: 40 };
-    const innerWidth = width - margin.left - margin.right;
-    const innerHeight = height - margin.top - margin.bottom;
-
-
-    
-
 
     // Map and projection
     var projection = d3.geoMercator()
@@ -83,14 +76,18 @@ const GeoMap = ( datas ) => {
         .on('mouseover', function(event, d) {
           // add text element show value on hover
           d3.select(this)
-          console.log(d.long, 'hovering')
-          
-
           svg.append('text')
-            .attr('class', 'value-text')
-            
-            .text(`fuck my asshole plz fulf kldsfjldsakjflksdjf jkfldsajf;llsaf jjkdls fjdskaf jsda jfs;ldfjsa;`)
+            .attr('class', 'text')
+            .attr("x", "200px")
+            .attr("y", "30px")
+            .text(`location: ${d.name}`)
             .attr('text-anchor', 'middle');
+        })
+        .on('mouseout', (event, d) => {
+          // select and remove the text element
+          d3.select(this) 
+          console.log('this should have removed it', d)
+          svg.select('.text').remove();
         })
     
 
