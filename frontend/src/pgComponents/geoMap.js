@@ -1,5 +1,6 @@
 import * as d3 from 'd3';
-import React, {useEffect, useRef} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import CheckedPreview from './checkedPreview';
 
 const GeoMap = ({props, marks}) => {
   // set ref 
@@ -11,9 +12,23 @@ const GeoMap = ({props, marks}) => {
   console.log(markers, 'markers')
   // tooltip ref
   const tooltipRef = useRef();
+  // set checked items for dropdown
+  const [checked, setChecked] = useState(['select']);
+  console.log('checked', checked.length)
+
+
 
   // updates with data
   useEffect(() => {
+
+    // handleclick function appends data to checked array
+    const handleClick = (d) => {
+      setChecked(prevData => [...prevData, { 
+        street: d.street,
+        city: d.citi,
+        price: d.price
+        }]);
+    };
     // The svg
     const svg = d3.select(svgRef.current)
                   .attr("viewBox", [0, 0, 600, 400]) 
@@ -30,7 +45,7 @@ const GeoMap = ({props, marks}) => {
     const tooltip = d3.select(tooltipRef.current)
       .style("position", "absolute")
       .style("visibility", "hidden")
-      .style("background-color", "white")
+      .style("background-color", "#262d2f")
       .style("border", "solid")
       .style("border-width", "1px")
       .style("border-radius", "5px")
@@ -43,7 +58,7 @@ const GeoMap = ({props, marks}) => {
         .translate([ width/2, height/2 ]);
 
     // Draw the map
-    const g = svg.append("g"); // create a new <g> element to hold the map and circles
+    const g = svg.append("g"); 
     g.selectAll("path")
         .data(jsonData.features)
         .enter()
@@ -70,7 +85,6 @@ const GeoMap = ({props, marks}) => {
 
         // mouse functions on map circles
         .on('mouseenter', function() {
-          console.log('hovering')
           d3.select(this).attr('fill', 'red');
         })
         .on('mouseleave', function() {
@@ -79,7 +93,7 @@ const GeoMap = ({props, marks}) => {
         .on('mouseover', function(event, d) {
           // add text element show value on hover
           d3.select(this)
-          tooltip.html(`<h1>${d.street}, ${d.citi}</h1><h2>longitude: ${d.longitude}</h2>`)
+          tooltip.html(`<h1>${d.street}, ${d.citi}</h1><h2>price: ${d.price}</h2>`)
             .style("visibility", "visible")
             .style("top", (event.pageY-10)+"px")
             .style("left",(event.pageX+10)+"px");
@@ -87,18 +101,24 @@ const GeoMap = ({props, marks}) => {
         .on('mouseout', (event, d) => {
           // select and remove the text element
           d3.select(this) 
-          console.log('this should have removed it', d)
           tooltip.style("visibility", "hidden");
+        })
+        .on('click', (event, d) => {
+          d3.select(this)
+          console.log(d, 'clicked')
+          handleClick(d)
         })
     
   }, [jsonData, markers]);
+
+  console.log(checked, 'checked')
 
   return (
     <div className='geo-svg'>
       <svg ref={svgRef} width="900" height="600"></svg>
       <div ref={tooltipRef}></div>
       <div className='logger'>
-        <p>I wanna add a catcher here that will DO SOmething</p>
+        <CheckedPreview props = {checked.length >= 1 ? checked : 'nada'} className = {checked.length >= 1 ? 'cool' : 'invisisble'}/>
       </div>
     </div>
   );

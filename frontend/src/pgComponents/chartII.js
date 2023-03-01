@@ -9,8 +9,13 @@ const BarChart = ({ data }) => {
 
   const svgRef = useRef();
 
-  const handleClick = (event, d) => {
-    console.log('Selected Data:', d);
+  const handleClick = (d) => {
+    setChecked([...checked, { 
+      street: d.street,
+      city: d.citi,
+      price: d.price
+       }]);
+    console.log(checked, 'checked afer click')
   };
 
 
@@ -94,7 +99,7 @@ const BarChart = ({ data }) => {
       .attr('transform', `translate(${margin.left}, ${margin.top})`)
       .call(yAxis);
       
-  }, [data]);
+  }, [data, handleClick]);
 
   return (
     <div>
