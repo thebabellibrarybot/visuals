@@ -1,34 +1,30 @@
 import * as d3 from 'd3';
 import React, {useEffect, useRef} from 'react';
 
-
-const GeoMap = ( datas ) => {
-
+const GeoMap = ({props, marks}) => {
   // set ref 
   const svgRef = useRef();
-  // set tooltip 
-  const tooltipRef = useRef();
   // create data for map:
-  const jsonData = datas.props;
+  const jsonData = props;
   // Create data for circles:
-  const markers = datas.marks;
+  const markers = marks;
+  // tooltip ref
+  const tooltipRef = useRef();
 
-    // updates with data
-    useEffect(() => {
-
+  // updates with data
+  useEffect(() => {
     // The svg
     const svg = d3.select(svgRef.current)
-    const width = +svg.attr("width")
-    const height = +svg.attr("height")
+                  .attr("viewBox", [0, 0, 600, 400]) // set viewBox to enable zooming and panning
+                  .call(d3.zoom().on("zoom", (event) => { // create zoom behavior and apply it to svg
+                    g.attr("transform", event.transform);
+                  }));
+    const width = +svg.attr("width");
+    const height = +svg.attr("height");
 
-    // Map and projection
-    const projection = d3.geoMercator()
-        .center([-115.972754, 33.27214])                
-        .scale(2040)                      
-        .translate([ width/2, height/2 ])
+    // Remove existing child elements of the SVG
+    svg.selectAll("*").remove();
 
-     // Define zoom behavior
-     
     // tooltip
     const tooltip = d3.select(tooltipRef.current)
       .style("position", "absolute")
@@ -39,25 +35,30 @@ const GeoMap = ( datas ) => {
       .style("border-radius", "5px")
       .style("padding", "10px")
 
+    // Map and projection
+    const projection = d3.geoMercator()
+        .center([-115.972754, 33.27214])                
+        .scale(2040)                      
+        .translate([ width/2, height/2 ]);
+
     // Draw the map
-    svg.append("g")
-        .selectAll("path")
+    const g = svg.append("g"); // create a new <g> element to hold the map and circles
+    g.selectAll("path")
         .data(jsonData.features)
         .enter()
         .append("path")
-          .attr("fill", "#b8b8b8")
-          .attr("d", d3.geoPath()
-              .projection(projection)
-          )
+        .attr("fill", "#b8b8b8")
+        .attr("d", d3.geoPath()
+            .projection(projection)
+        )
         .style("stroke", "black")
-        .style("opacity", .9)
+        .style("opacity", .9);
     
     // Add circles:
-    svg
-      .selectAll("myCircles")
-      .data(markers)
-      .enter()
-      .append("circle")
+    g.selectAll("circle")
+        .data(markers)
+        .enter()
+        .append("circle")
         .attr("cx", function(d){ return projection([d.long, d.lat])[0] })
         .attr("cy", function(d){ return projection([d.long, d.lat])[1] })
         .attr("r", 5)
@@ -65,7 +66,8 @@ const GeoMap = ( datas ) => {
         .attr("stroke", "#69b3a2")
         .attr("stroke-width", 1)
         .attr("fill-opacity", .4)
-    
+
+        // mouse functions on map circles
         .on('mouseenter', function() {
           console.log('hovering')
           d3.select(this).attr('fill', 'red');
@@ -87,15 +89,15 @@ const GeoMap = ( datas ) => {
           console.log('this should have removed it', d)
           tooltip.style("visibility", "hidden");
         })
-        
-    }, [jsonData, markers])
+    
+  }, [jsonData, markers]);
 
-    return (
+  return (
     <div>
-        <h1>reresentation of asset via cultural institution: Morgan Library</h1>
-        <svg ref={svgRef} width="600" height="400"></svg>
-        <div ref={tooltipRef}></div>
+      <svg ref={svgRef} width="600" height="400"></svg>
+      <div ref={tooltipRef}></div>
     </div>
-    );
+  );
 };
+
 export default GeoMap;
