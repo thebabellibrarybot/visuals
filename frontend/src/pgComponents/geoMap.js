@@ -97,6 +97,9 @@ const GeoMap = ({props, marks}) => {
     <div className='geo-svg'>
       <svg ref={svgRef} width="900" height="600"></svg>
       <div ref={tooltipRef}></div>
+      <div className='logger'>
+        <p>I wanna add a catcher here that will DO SOmething</p>
+      </div>
     </div>
   );
 };

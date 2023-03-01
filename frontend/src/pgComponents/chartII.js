@@ -1,24 +1,27 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import * as d3 from 'd3';
+import CheckedPreview from './checkedPreview';
 
 const BarChart = ({ data }) => {
 
-  // set ref 
+  const [checked, setChecked] = useState(['Selected']);
+  console.log('checked', checked.length)
+
   const svgRef = useRef();
-  // onClickHandler
+
   const handleClick = (event, d) => {
     console.log('Selected Data:', d);
   };
 
-  // updates with new props from barChart.js
+
   useEffect(() => {
-    // declare svg obj
+
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove(); // clear old charts when useEffect reRenders
  
     const width = +svg.attr('width');
     const height = +svg.attr('height');
-    const margin = { top: 20, right: 20, bottom: 190, left: 40 };
+    const margin = { top: 20, right: 20, bottom: 270, left: 40 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
@@ -96,7 +99,8 @@ const BarChart = ({ data }) => {
   return (
     <div>
       <h1>reresentation of asset via cultural institution: Morgan Library</h1>
-      <svg ref={svgRef} width="600" height="600"></svg>
+      <svg ref={svgRef} width="800" height="800"></svg>
+      <CheckedPreview props = {checked.length >= 1 ? checked : 'nada'} className = {checked.length >= 1 ? 'cool' : 'invisisble'}/>
     </div>
   );
 };
