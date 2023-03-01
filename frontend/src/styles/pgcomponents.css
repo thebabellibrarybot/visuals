@@ -25,3 +25,12 @@
     background-color: rgb(255, 102, 102);
     color: rgb(76, 0, 0);
 }
+
+.geo-svg {
+    border: 1px solid lightblue;
+    padding: 12px;
+    border-radius: 10px;
+}
+.toolkit {
+    background-color: red;
+}

@@ -30,3 +30,9 @@ export const findHousingData = async (year, value) => {
   const response = await axios.get('/getHouseData')
   return response.data;
 }
+
+// get all housing geodata
+export const findHousingGeoData = async (year, value) => {
+  const response = await axios.get('/getHouseData/geo')
+  return response.data;
+}

@@ -8,7 +8,7 @@
     align-items: center;
 }
 button {
-    background-color: rgb(31, 34, 41);
+    background-color: #1f2229;
     padding: 10px;
     border-radius: 10px;
     text-decoration: none;
@@ -16,7 +16,7 @@ button {
     margin: 10px;
 }
 button:hover {
-    border-color: lightblue;
+    border-color: #add8e6;
 }
 h1 {
     font-size: x-large;

@@ -8,6 +8,7 @@ const GeoMap = ({props, marks}) => {
   const jsonData = props;
   // Create data for circles:
   const markers = marks;
+  console.log(markers, 'markers')
   // tooltip ref
   const tooltipRef = useRef();
 
@@ -15,8 +16,8 @@ const GeoMap = ({props, marks}) => {
   useEffect(() => {
     // The svg
     const svg = d3.select(svgRef.current)
-                  .attr("viewBox", [0, 0, 600, 400]) // set viewBox to enable zooming and panning
-                  .call(d3.zoom().on("zoom", (event) => { // create zoom behavior and apply it to svg
+                  .attr("viewBox", [0, 0, 600, 400]) 
+                  .call(d3.zoom().on("zoom", (event) => { 
                     g.attr("transform", event.transform);
                   }));
     const width = +svg.attr("width");
@@ -38,7 +39,7 @@ const GeoMap = ({props, marks}) => {
     // Map and projection
     const projection = d3.geoMercator()
         .center([-115.972754, 33.27214])                
-        .scale(2040)                      
+        .scale(4080)                      
         .translate([ width/2, height/2 ]);
 
     // Draw the map
@@ -47,11 +48,11 @@ const GeoMap = ({props, marks}) => {
         .data(jsonData.features)
         .enter()
         .append("path")
-        .attr("fill", "#b8b8b8")
+        .attr("fill", "#1f2229")
         .attr("d", d3.geoPath()
             .projection(projection)
         )
-        .style("stroke", "black")
+        .style("stroke", "#3f7688")
         .style("opacity", .9);
     
     // Add circles:
@@ -59,8 +60,8 @@ const GeoMap = ({props, marks}) => {
         .data(markers)
         .enter()
         .append("circle")
-        .attr("cx", function(d){ return projection([d.long, d.lat])[0] })
-        .attr("cy", function(d){ return projection([d.long, d.lat])[1] })
+        .attr("cx", function(d){ return projection([d.longitude, d.latitude])[0] })
+        .attr("cy", function(d){ return projection([d.longitude, d.latitude])[1] })
         .attr("r", 5)
         .style("fill", "69b3a2")
         .attr("stroke", "#69b3a2")
@@ -78,7 +79,7 @@ const GeoMap = ({props, marks}) => {
         .on('mouseover', function(event, d) {
           // add text element show value on hover
           d3.select(this)
-          tooltip.html(`<h1>${d.name}</h1><h2>Longitude: ${d.long}</h2>`)
+          tooltip.html(`<h1>${d.street}, ${d.citi}</h1><h2>longitude: ${d.longitude}</h2>`)
             .style("visibility", "visible")
             .style("top", (event.pageY-10)+"px")
             .style("left",(event.pageX+10)+"px");
@@ -93,8 +94,8 @@ const GeoMap = ({props, marks}) => {
   }, [jsonData, markers]);
 
   return (
-    <div>
-      <svg ref={svgRef} width="600" height="400"></svg>
+    <div className='geo-svg'>
+      <svg ref={svgRef} width="900" height="600"></svg>
       <div ref={tooltipRef}></div>
     </div>
   );
