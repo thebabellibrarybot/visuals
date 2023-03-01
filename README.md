@@ -6,7 +6,7 @@ app for looking at houisng data
 sorry if we weren't expecting a react project. but this is a pretty quick run
 
 ```
-git clone url
+git clone https://github.com/thebabellibrarybot/visuals.git
 ```
 
 ```
