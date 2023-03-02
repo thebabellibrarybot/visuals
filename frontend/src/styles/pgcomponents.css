@@ -34,3 +34,36 @@
 .toolkit {
     background-color: red;
 }
+
+.checked-preview{
+
+  border: 1px solid black;
+  width: 70%;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #374447;
+
+};
+.selected-previewers {
+  background-color: transparent;
+}
+.view-obj {
+  padding: 10px;
+  border-radius: 10px;
+  justify-content: center;
+}
+.view-obj h1{
+  border-bottom: 2px solid lightblue;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.viewer {
+  display: inline;
+  width: 100%;
+  border: 1px solid lightblue;
+  border-radius: 10px;
+}

@@ -5,7 +5,7 @@ class Home extends React.Component {
     return (
       <div className='base'>
 
-        <div className='home-option'>
+        <div id = 'mine' className='home-option'>
           <Link className='link' to="/barchart" >Bar Chart</Link>
           <p>bar chart of data scrapped from libraries</p>
         </div>

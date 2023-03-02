@@ -15,3 +15,14 @@
     background-color: #374447;
     padding: 10px;
 }
+#mine {
+    border-color: pink;
+    border-style: dashed;
+}
+
+.logger {
+    display: flex;
+    justify-content: center;
+}
+
+

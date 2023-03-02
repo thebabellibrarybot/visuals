@@ -13,6 +13,11 @@ const GeoMapOptions = () => {
     const [data, setData] = useState(null);
     const [dataII, setDataII] = useState(null);
 
+    // ** notice styles componentat bottom 
+    const noticeStyles = {
+        color: 'rgb(255, 102, 102)'
+    }
+
     useEffect(() => {
         json(myUrl).then(setData)
         findHousingGeoData().then(setDataII);
@@ -30,7 +35,7 @@ const GeoMapOptions = () => {
             <div>
                 <h1>Map of Housing Data in So Cal</h1>
                 <GeoMap props = {data} marks = {dataII}/> 
-                <p>*Note: i used a free api to get the long, lat from street addys. <br/>as a result I was only able to make the req a limited number of times</p> 
+                <p style = {noticeStyles}>*Note: i used a free api to get the long, lat from street addys. <br/>as a result I was only able to make the req a limited number of times</p> 
             </div>
        </div>
     )
