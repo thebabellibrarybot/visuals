@@ -14,7 +14,7 @@ npm install
 ```
 
 ```
-npm install-client
+npm run install-client
 ```
 
 ```
@@ -49,9 +49,23 @@ In replacement for this prompt I have also shared the webscrapes I made for my e
 # on D3
 
 ###### Ideals I tried to focus on:
+ 
+- integrating DOM with react state and functional calls
+ 
+- filtering, searching, and re-usability of components
+ 
+- user actions and customization
 
 
 ###### Overview:
+ 
+- Right off the bat I think this library is really cool and really want to try to play around with it more in the future. I mostly used source material from chatGPT and D3.js Graph gallery https://d3-graph-gallery.com/ to come up with the responses to these prompts but I think that with a little time I could really go off rail from these basic graphs and just use it as a really great library to interact with the DOM or a custom svg even. 
+ 
+- There was a bit of a learning curve and adjustment period I had to go through to get use to this library. The syntax is a little intimidating and the functionallity seems very abstract at first. After having only really used D3 for a week I feel very confident that I would be able to quickly build my skills with this library.
+ 
+- I can't belive how great the community of tools for geoJSON and D3 are so just taking a moment to appreciate that.
 
  
 ###### Fails: 
+ 
+- I sent you all a whole react project here. I'm not sure if you just wanted an html file or if this is okay too, so I appologize if this is a little over the top. I am also unsure if it's a little underdone since I didn't spend time applying every style and interaction event possible but focused more on interacting with user manipulated state. If it helps at all I'd be happy to re-render just the graphs as html.
