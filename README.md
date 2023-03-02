@@ -56,14 +56,16 @@ In replacement for this prompt I have also shared the webscrapes I made for my e
  
 - Right off the bat I think this library is really cool and really want to try to play around with it more in the future. I mostly used source material from chatGPT and D3.js Graph gallery https://d3-graph-gallery.com/ to come up with the responses to these prompts but I think that with a little time I could really go off rail from these basic graphs and just use it as a really great library to interact with the DOM or a custom svg even. 
  
- geoMap `frontend/src/pgcomponents/geoMap`: https://github.com/thebabellibrarybot/visuals/blob/main/frontend/src/pgComponents/geoMap.js
+ ###### geoMap 
+ `frontend/src/pgcomponents/geoMap`: https://github.com/thebabellibrarybot/visuals/blob/main/frontend/src/pgComponents/geoMap.js
  
- data table `frontend/src/pgcomponenets/basictable`: https://github.com/thebabellibrarybot/visuals/blob/main/frontend/src/pgComponents/basicTable.js
+ ###### data table 
+ `frontend/src/pgcomponenets/basictable`: https://github.com/thebabellibrarybot/visuals/blob/main/frontend/src/pgComponents/basicTable.js
  
- bar chart `frontend/scr/pgcomopnenets/chartII: https://github.com/thebabellibrarybot/visuals/blob/main/frontend/src/pgComponents/chartII.js
+ ###### bar chart 
+ `frontend/scr/pgcomopnenets/chartII: https://github.com/thebabellibrarybot/visuals/blob/main/frontend/src/pgComponents/chartII.js
  
 ###### pitfalls: 
  
-- I sent you all a whole react project here. I'm not sure if you just wanted an html file or if this is okay too, so I apologize if this is a little over the top. I am also unsure if it's a little underdone since I didn't spend time applying every style and interaction event possible. If it helps at all I'd be happy to re-render just the graphs as html.
+- I sent you all a whole react project here. I'm not sure if you just wanted an html file or if this is okay too, so I apologize if this is a little over the top. I am also unsure if it's a little underdone since I'm really unsure of the context here.. I can probably just turn this into three htmls filtes if that's preferred
  
-- I probably didn't spend enough time making the styles for this project look really nice. I kinda just wanted to focus on understanding the functionality better first and then get into styles more but as the week progressed I never really got around to it.
