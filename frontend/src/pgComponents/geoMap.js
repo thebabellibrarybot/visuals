@@ -2,7 +2,7 @@ import * as d3 from 'd3';
 import React, { useEffect, useRef, useState } from 'react';
 import CheckedPreview from './checkedPreview';
 
-const GeoMap = ({props, marks}) => {
+const GeoMap = ({props, marks, hw, startpoint, scale, viewer}) => {
 
   const svgRef = useRef();
   const tooltipRef = useRef();
@@ -10,6 +10,11 @@ const GeoMap = ({props, marks}) => {
   const jsonData = props;
   // Create data for circles:
   const markers = marks;
+  // get heigh // width // start location from props
+  const svgHeight = hw[0];
+  const svgWidth = hw[1];
+  const startlocation = startpoint;
+  const myScale = scale;
   // set checked items for dropdown
   const [checked, setChecked] = useState(['select']);
 
@@ -47,8 +52,8 @@ const GeoMap = ({props, marks}) => {
 
     // Map and projection
     const projection = d3.geoMercator()
-        .center([-115.972754, 33.27214])                
-        .scale(4080)                      
+        .center(startlocation)                
+        .scale(myScale)                      
         .translate([ width/2, height/2 ]);
 
     // Draw the map
@@ -87,7 +92,7 @@ const GeoMap = ({props, marks}) => {
         .on('mouseover', function(event, d) {
           // add text element show value on hover
           d3.select(this)
-          tooltip.html(`<h1>${d.street}, ${d.citi}</h1><h2>price: ${d.price}</h2>`)
+          tooltip.html(`<h1>Addy: ${d.street}, ${d.citi}</h1><h2>counts: ${d.counts_locations},<br/>price sqft ${d.price_sqft}</h2>`)
             .style("visibility", "visible")
             .style("top", (event.pageY-10)+"px")
             .style("left",(event.pageX+10)+"px");
@@ -103,14 +108,14 @@ const GeoMap = ({props, marks}) => {
           handleClick(d)
         })
     
-  }, [jsonData, markers]);
+  }, [jsonData, markers, startlocation]);
 
   return (
     <div className='geo-svg'>
-      <svg ref={svgRef} width="900" height="600"></svg>
+      <svg ref={svgRef} width={svgWidth} height={svgHeight}></svg>
       <div ref={tooltipRef}></div>
       <div className='logger'>
-        <CheckedPreview props = {checked.length >= 1 ? checked : 'nada'} className = {checked.length >= 1 ? 'cool' : 'invisisble'}/>
+        {viewer ? <CheckedPreview props = {checked.length >= 1 ? checked : 'nada'} className = {checked.length >= 1 ? 'cool' : 'invisisble'}/> : null}
       </div>
     </div>
   );

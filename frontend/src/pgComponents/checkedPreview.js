@@ -5,12 +5,9 @@ const CheckedPreview = (props) => {
     const datainital = props.props;
     const data = datainital.slice(1)
     const navigate = useNavigate();
-    console.log(data, 'data from checked Preview')
 
     function handleClick() {
-
         navigate('/viewselected', { state: data });
-
     }
 
     if (data !== 'nada') {
