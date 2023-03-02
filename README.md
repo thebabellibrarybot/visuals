@@ -69,3 +69,5 @@ In replacement for this prompt I have also shared the webscrapes I made for my e
 ###### Fails: 
  
 - I sent you all a whole react project here. I'm not sure if you just wanted an html file or if this is okay too, so I appologize if this is a little over the top. I am also unsure if it's a little underdone since I didn't spend time applying every style and interaction event possible but focused more on interacting with user manipulated state. If it helps at all I'd be happy to re-render just the graphs as html.
+ 
+- I probably didn't spend enough time making the styles for this project look really nice. I kinda just wanted to focus on understanding the functionality better first and then get into styles more but as the week progressed I never really got around to it.
