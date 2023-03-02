@@ -57,7 +57,9 @@ In replacement for this prompt I have also shared the webscrapes I made for my e
 - Right off the bat I think this library is really cool and really want to try to play around with it more in the future. I mostly used source material from chatGPT and D3.js Graph gallery https://d3-graph-gallery.com/ to come up with the responses to these prompts but I think that with a little time I could really go off rail from these basic graphs and just use it as a really great library to interact with the DOM or a custom svg even. 
  
  geoMap `frontend/src/pgcomponents/geoMap`: https://github.com/thebabellibrarybot/visuals/blob/main/frontend/src/pgComponents/geoMap.js
+ 
  data table `frontend/src/pgcomponenets/basictable`: https://github.com/thebabellibrarybot/visuals/blob/main/frontend/src/pgComponents/basicTable.js
+ 
  bar chart `frontend/scr/pgcomopnenets/chartII: https://github.com/thebabellibrarybot/visuals/blob/main/frontend/src/pgComponents/chartII.js
  
 ###### pitfalls: 
