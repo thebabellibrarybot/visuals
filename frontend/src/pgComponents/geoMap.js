@@ -31,7 +31,7 @@ const GeoMap = ({props, marks, hw, startpoint, scale, viewer}) => {
     };
     // The svg
     const svg = d3.select(svgRef.current)
-                  .attr("viewBox", [0, 0, 600, 400]) 
+                  .attr("viewBox", [0, 0, 100, 150]) 
                   .call(d3.zoom().on("zoom", (event) => { 
                     g.attr("transform", event.transform);
                   }));
