@@ -2,12 +2,15 @@ import { useNavigate } from 'react-router-dom';
 
 const CheckedPreview = (props) => {
 
-    const data = props.props;
+    const datainital = props.props;
+    const data = datainital.slice(1)
     const navigate = useNavigate();
+    console.log(data, 'data from checked Preview')
 
     function handleClick() {
 
         navigate('/viewselected', { state: data });
+
     }
 
     if (data !== 'nada') {
@@ -15,9 +18,8 @@ const CheckedPreview = (props) => {
             <div className = 'checked-preview'>
                 <h1>selected values</h1>
                 {data.map((d, i) => {
-                    console.log(d)
                     return (
-                        <p className = 'selected-previewers' key = {i}>{d.street}</p>
+                        <p className = 'selected-previewers' key = {i}>{d.d.street? d.d.street : d.d.value}</p>
                     )
                 })}
                 <button onClick={handleClick}>view selected</button>

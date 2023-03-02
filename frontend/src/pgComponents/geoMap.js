@@ -3,18 +3,15 @@ import React, { useEffect, useRef, useState } from 'react';
 import CheckedPreview from './checkedPreview';
 
 const GeoMap = ({props, marks}) => {
-  // set ref 
+
   const svgRef = useRef();
+  const tooltipRef = useRef();
   // create data for map:
   const jsonData = props;
   // Create data for circles:
   const markers = marks;
-  console.log(markers, 'markers')
-  // tooltip ref
-  const tooltipRef = useRef();
   // set checked items for dropdown
   const [checked, setChecked] = useState(['select']);
-  console.log('checked', checked.length)
 
 
 
@@ -24,9 +21,7 @@ const GeoMap = ({props, marks}) => {
     // handleclick function appends data to checked array
     const handleClick = (d) => {
       setChecked(prevData => [...prevData, { 
-        street: d.street,
-        city: d.citi,
-        price: d.price
+        d
         }]);
     };
     // The svg
@@ -38,8 +33,7 @@ const GeoMap = ({props, marks}) => {
     const width = +svg.attr("width");
     const height = +svg.attr("height");
 
-    // Remove existing child elements of the SVG
-    svg.selectAll("*").remove();
+    svg.selectAll("*").remove(); // clear old charts for useEffect
 
     // tooltip
     const tooltip = d3.select(tooltipRef.current)
@@ -103,15 +97,13 @@ const GeoMap = ({props, marks}) => {
           d3.select(this) 
           tooltip.style("visibility", "hidden");
         })
+        // add to checked data
         .on('click', (event, d) => {
           d3.select(this)
-          console.log(d, 'clicked')
           handleClick(d)
         })
     
   }, [jsonData, markers]);
-
-  console.log(checked, 'checked')
 
   return (
     <div className='geo-svg'>

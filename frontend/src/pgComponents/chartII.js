@@ -4,23 +4,21 @@ import CheckedPreview from './checkedPreview';
 
 const BarChart = ({ data }) => {
 
-  const [checked, setChecked] = useState(['Selected']);
-  console.log('checked', checked.length)
-
   const svgRef = useRef();
-
-  const handleClick = (d) => {
-    setChecked([...checked, { 
-      street: d.street,
-      city: d.citi,
-      price: d.price
-       }]);
-    console.log(checked, 'checked afer click')
-  };
+  // set checked items for dropdown
+  const [checked, setChecked] = useState(['select']);
 
 
   useEffect(() => {
 
+    // handleclick function appends data to checked array
+    const handleClick = (d) => {
+      setChecked(prevData => [...prevData, { 
+        d
+        }]);
+    };
+
+    // The svg
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove(); // clear old charts when useEffect reRenders
  
@@ -51,6 +49,8 @@ const BarChart = ({ data }) => {
       .attr('width', xScale.bandwidth())
       .attr('height', d => innerHeight - yScale(d.num))
       .attr('fill', '#3498db')
+
+      // mouse functions for bars
       .on('mouseenter', function() {
         console.log('hovering')
         d3.select(this).attr('fill', '#82f9ef');
@@ -73,7 +73,11 @@ const BarChart = ({ data }) => {
         // select and remove the text element 
         svg.select('.value-text').remove();
       })
-      .on('click', handleClick);
+      // add to checked data
+      .on('click', (event, d) => {
+        d3.select(this)
+        handleClick(d)
+      })
         
 
     // declare axis's
@@ -99,13 +103,15 @@ const BarChart = ({ data }) => {
       .attr('transform', `translate(${margin.left}, ${margin.top})`)
       .call(yAxis);
       
-  }, [data, handleClick]);
+  }, [data]);
 
   return (
     <div>
       <h1>reresentation of asset via cultural institution: Morgan Library</h1>
       <svg ref={svgRef} width="800" height="800"></svg>
-      <CheckedPreview props = {checked.length >= 1 ? checked : 'nada'} className = {checked.length >= 1 ? 'cool' : 'invisisble'}/>
+      <div className='logger'>
+        <CheckedPreview props = {checked.length >= 1 ? checked : 'nada'} className = {checked.length >= 1 ? 'cool' : 'invisisble'}/>
+      </div>
     </div>
   );
 };
