@@ -1,0 +1,3 @@
+- mk barchart filterable and add transition effects
+
+-- add a barchart element to the viewSelected component

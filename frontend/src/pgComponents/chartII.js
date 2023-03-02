@@ -52,14 +52,13 @@ const BarChart = ({ data }) => {
 
       // mouse functions for bars
       .on('mouseenter', function() {
-        console.log('hovering')
         d3.select(this).attr('fill', '#82f9ef');
       })
       .on('mouseleave', function() {
         d3.select(this).attr('fill', '#3498db');
       })
+      // add text element show value on hover
       .on('mouseover', (event, d) => {
-        // add text element show value on hover
         svg.append('text')
           .attr('class', 'value-text')
           .attr('x', xScale(data.indexOf(d)) + xScale.bandwidth() / 2)
@@ -79,7 +78,6 @@ const BarChart = ({ data }) => {
         handleClick(d)
       })
         
-
     // declare axis's
     const xAxis = d3.axisBottom(xScale)
         .tickFormat(d => data[d].value);
@@ -102,7 +100,8 @@ const BarChart = ({ data }) => {
       .attr('class', 'y-axis')
       .attr('transform', `translate(${margin.left}, ${margin.top})`)
       .call(yAxis);
-      
+    
+   
   }, [data]);
 
   return (

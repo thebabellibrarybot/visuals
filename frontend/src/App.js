@@ -5,7 +5,7 @@ import Home from './components/home';
 import HousingChart from './components/basicTableOptions';
 import BarChartOptions from './components/barChartOptions';
 import GeoMapOptions from './components/geoMapOptions';
-import ViewSelected from './pgComponents/viewSelected';
+import ViewSelected from './components/viewSelected';
 
 import './styles/components.css';
 import './styles/pgcomponents.css';
