@@ -32,9 +32,9 @@ In replacement for this prompt I have also shared the webscrapes I made for my e
 
 ###### Ideals I tried to focus on:
 
-- functions that take prop of very general identifier i.e. <button> or <a> and the text value of that element to click through all necessary pages
+- functions that take prop of very general identifier i.e. like `<button>` or `<a>` and the text value of that element to click through all necessary pages
 
-- a secondary data scraping function that gets the href from everyplace if the prop (chart is applied) this function can also be directed at a particular `<a>` element's attribute such as class or ID. Allowing you to only get the hrefs from the `<a>` elements you want hrefs from.
+- a secondary data scraping function that gets the href from every element if the prop chart is applied. this function can also be directed at a particular `<a>` element's attribute such as class or ID. Allowing you to only get the hrefs from the `<a>` elements you want hrefs from.
 
 
 ###### pitfalls: 
