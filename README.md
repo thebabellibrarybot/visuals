@@ -63,7 +63,7 @@ In replacement for this prompt I have also shared the webscrapes I made for my e
  `frontend/src/pgcomponenets/basictable`: https://github.com/thebabellibrarybot/visuals/blob/main/frontend/src/pgComponents/basicTable.js
  
  ###### bar chart 
- `frontend/scr/pgcomopnenets/chartII: https://github.com/thebabellibrarybot/visuals/blob/main/frontend/src/pgComponents/chartII.js
+ `frontend/scr/pgcomopnenets/chartII`: https://github.com/thebabellibrarybot/visuals/blob/main/frontend/src/pgComponents/chartII.js
  
 ###### pitfalls: 
  
