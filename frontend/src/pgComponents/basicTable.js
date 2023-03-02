@@ -39,6 +39,7 @@ const BasicTable = (prop) => {
   
     return (
       <div className="tabllz">
+        <h1>Table of housing data in So Cal</h1>
       
       <GlobalFilter filter = {globalFilter} setFilter={setGlobalFilter} />
       

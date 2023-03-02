@@ -51,6 +51,7 @@
   padding: 10px;
   border-radius: 10px;
   justify-content: center;
+  text-align: center;
 }
 .view-obj h1{
   border-bottom: 2px solid lightblue;
@@ -66,4 +67,8 @@
   width: 100%;
   border: 1px solid lightblue;
   border-radius: 10px;
+}
+
+.ah {
+  background-color: #374447;
 }

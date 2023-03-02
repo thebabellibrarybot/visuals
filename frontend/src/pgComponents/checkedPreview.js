@@ -19,7 +19,9 @@ const CheckedPreview = (props) => {
                 <h1>selected values</h1>
                 {data.map((d, i) => {
                     return (
-                        <p className = 'selected-previewers' key = {i}>{d.d.street? d.d.street : d.d.value}</p>
+                        <div className='ah'>
+                            <p className = 'selected-previewers' key = {i}>{d.d.street? d.d.street : d.d.value}</p>
+                        </div>
                     )
                 })}
                 <button onClick={handleClick}>view selected</button>

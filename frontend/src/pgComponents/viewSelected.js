@@ -8,10 +8,9 @@ function ViewSelected() {
 
 return (
     <div className='view-obj'>
+        {data[0].d.street ? <h2 style={{ fontSize: "xx-large" }}>selected housing lots</h2> : <h2 style={{ fontSize: "xx-large" }}>selected manuscripts</h2>}
         <div className='grid'>
             {dataArray.map((obj, index) => {
-
-                console.log(obj.d.value, 'obj from viewselected')
 
                 const title = obj.d.street || obj.d.value;
                 const price = obj.d.price || obj.d.num;
