@@ -14,7 +14,7 @@ npm install
 ```
 
 ```
-npm install-client
+npm run install-client
 ```
 
 ```
