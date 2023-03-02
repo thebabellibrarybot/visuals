@@ -24,7 +24,7 @@ const BarChart = ({ data }) => {
  
     const width = +svg.attr('width');
     const height = +svg.attr('height');
-    const margin = { top: 20, right: 20, bottom: 270, left: 40 };
+    const margin = { top: 20, right: 20, bottom: 60, left: 40 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
@@ -92,8 +92,7 @@ const BarChart = ({ data }) => {
       .selectAll('text')
       .attr('transform', 'rotate(-45)')
       .attr('text-anchor', 'end')
-      .attr('dx', '-1em')
-      .attr('dy', '-0.15em');
+    
 
     // add y-axis
     svg.append('g')
@@ -107,7 +106,7 @@ const BarChart = ({ data }) => {
   return (
     <div>
       <h1>reresentation of asset via cultural institution: Morgan Library</h1>
-      <svg ref={svgRef} width="800" height="800"></svg>
+      <svg ref={svgRef} width="600" height="400"></svg>
       <div className='logger'>
         <CheckedPreview props = {checked.length >= 1 ? checked : 'nada'} className = {checked.length >= 1 ? 'cool' : 'invisisble'}/>
       </div>
