@@ -36,11 +36,8 @@ In replacement for this prompt I have also shared the webscrapes I made for my e
 
 - a secondary data scraping function that gets the href from everyplace if the prop (chart is applied) this function can also be directed at a particular `<a>` element's attribute such as class or ID. Allowing you to only get the hrefs from the `<a>` elements you want hrefs from.
 
-- a tertiary function that uses puppeteer-cluster to concurrently drape all the text elements you want. Had trouble making this function malleable via props as I tried getting all text and then using string logic to extract desired values. I saw that Seligman has some cool props that could potentially help with this such as 'elementAbove' or 'nearbyElemnts'. 
 
-###### Fails: 
-
-- I had to loop through a lot of data to do this web scraping and had to add a fourth function for formatting all the scraped data when I probably should have included a structured compilation of the data in the aforementioned tertiary functions. 
+###### pitfalls: 
 
 - wasn't sure if the tertiary function should've been just uploading data to a csv to be formatted by a variety of specific calls or if it's better to dictate what exactly was scrapped and what the format // meta-data accessed would be. 
 
@@ -53,21 +50,18 @@ In replacement for this prompt I have also shared the webscrapes I made for my e
 - integrating DOM with react state and functional calls
  
 - filtering, searching, and reusability of components
- 
-- user actions and customization
 
 
 ###### Overview:
  
 - Right off the bat I think this library is really cool and really want to try to play around with it more in the future. I mostly used source material from chatGPT and D3.js Graph gallery https://d3-graph-gallery.com/ to come up with the responses to these prompts but I think that with a little time I could really go off rail from these basic graphs and just use it as a really great library to interact with the DOM or a custom svg even. 
  
-- There was a bit of a learning curve and adjustment period I had to go through to get use to this library. The syntax is a little intimidating and the functionality seems very abstract at first. After having only really used D3 for a week I feel very confident that I would be able to quickly build my skills with this library.
+ geoMap `frontend/src/pgcomponents/geoMap`: https://github.com/thebabellibrarybot/visuals/blob/main/frontend/src/pgComponents/geoMap.js
+ data table `frontend/src/pgcomponenets/basictable`: https://github.com/thebabellibrarybot/visuals/blob/main/frontend/src/pgComponents/basicTable.js
+ bar chart `frontend/scr/pgcomopnenets/chartII: https://github.com/thebabellibrarybot/visuals/blob/main/frontend/src/pgComponents/chartII.js
  
-- I can't believe how great the community of tools for geoJSON and D3 are so just taking a moment to appreciate that.
-
+###### pitfalls: 
  
-###### Fails: 
- 
-- I sent you all a whole react project here. I'm not sure if you just wanted an html file or if this is okay too, so I apologize if this is a little over the top. I am also unsure if it's a little underdone since I didn't spend time applying every style and interaction event possible but focused more on interacting with user manipulated state. If it helps at all I'd be happy to re-render just the graphs as html.
+- I sent you all a whole react project here. I'm not sure if you just wanted an html file or if this is okay too, so I apologize if this is a little over the top. I am also unsure if it's a little underdone since I didn't spend time applying every style and interaction event possible. If it helps at all I'd be happy to re-render just the graphs as html.
  
 - I probably didn't spend enough time making the styles for this project look really nice. I kinda just wanted to focus on understanding the functionality better first and then get into styles more but as the week progressed I never really got around to it.
