@@ -56,6 +56,7 @@ In replacement for this prompt I have also shared the webscrapes I made for my c
  
 - Right off the bat I think this library is really cool and really want to try to play around with it more in the future. I mostly used source material from chatGPT and D3.js Graph gallery https://d3-graph-gallery.com/ to come up with the responses to these prompts but I think that with a little time I could really go off rail from these basic graphs and really customize it. For this exersize I wanted to focus on integration with react and making the graphes re-usable via props.  
  
+ # code locations
  ###### geoMap 
  `frontend/src/pgcomponents/geoMap`: https://github.com/thebabellibrarybot/visuals/blob/main/frontend/src/pgComponents/geoMap.js
  
