@@ -27,6 +27,16 @@ const BarChart = (props) => {
         fetchData();
     }, [version, search])
 
+    console.log(search, 'version')
+
+    if (search === 'nada') {
+        return (
+            <div className="loader">
+                <p>please select an option from the drop-down</p>
+            </div>
+        )
+    }
+
     if (!data) {
         return (
             <div className="loader">
