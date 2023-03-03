@@ -26,7 +26,7 @@ and that's all folks!
 # on Puppeteer
 ## Overview:
 
-I couldn't figure out the scraping for corcona. You can see the code attempts in the repository linked below. If I had to guess they had an iFrame or something that was only allowing me to scrape the first two lots per page, although I was able to click through all the pages by identifying the second largest number from `<li>` elements with a 'page____navigator' asset.
+I couldn't figure out the scraping for corcona. You can see the code attempts in the repository linked below. If I had to guess they had an iFrame or something that was only allowing me to scrape the first two lots per page, although I was able to click through all the pages by identifying the second largest number from `<li>` elements with a 'page____navigator' id attribute.
 
 In replacement for this prompt I have also shared the webscrapes I made for my custom visual (the barchart of library data). The code is pretty messy but it wasn't really asked for in the prompt. I've attached a link to that repository anyways. https://github.com/thebabellibrarybot/mumbotsPuppies.git
 
